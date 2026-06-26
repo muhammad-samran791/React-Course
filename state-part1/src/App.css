@@ -1,0 +1,13 @@
+.counter-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.counter-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0em 1em;
+}

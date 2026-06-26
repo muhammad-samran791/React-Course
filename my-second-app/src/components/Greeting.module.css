@@ -1,0 +1,10 @@
+.bg-dark {
+  background: black;
+  color: white;
+}
+
+.container {
+  max-width: 50%;
+  margin: auto;
+  border: 5px solid red;
+}
