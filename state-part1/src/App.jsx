@@ -1,6 +1,7 @@
 // import Counter from "./components/Counter";
 // import SimpleStateExample from "./components/SimpleStateExample";
-import StateExampleArray from "./components/StateExampleArray";
+// import StateExampleArray from "./components/StateExampleArray";
+import StateExampleObjects from "./components/StateExampleObjects";
 import "./App.css";
 
 function App() {
@@ -8,7 +9,8 @@ function App() {
     <>
       {/* <SimpleStateExample /> */}
       {/* <Counter /> */}
-      <StateExampleArray />
+      {/* <StateExampleArray /> */}
+      <StateExampleObjects />
     </>
   );
 }
