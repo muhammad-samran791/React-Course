@@ -34,7 +34,7 @@ function HandleMultipleInputs() {
 
   const {
     firstName,
-    lastName,
+    lastName, 
     username,
     password,
     confirmPassword,

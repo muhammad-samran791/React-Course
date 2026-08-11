@@ -1,5 +1,5 @@
 {
-  "name": "handle-form-input-with-single-function",
+  "name": "03-form-input-using-useref-hook",
   "private": true,
   "version": "0.0.0",
   "type": "module",
