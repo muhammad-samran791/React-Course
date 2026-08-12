@@ -1,7 +1,11 @@
 import React from "react";
 
-function RockBand({ rockBand }) {
-  return <li>{rockBand}</li>;
+function RockBand({ rockBand, id }) {
+  return (
+    <li>
+      {id} {rockBand}
+    </li>
+  );
 }
 
 export default RockBand;

@@ -17,6 +17,11 @@ function RockBandList() {
 
   const addNew = () => {
     console.log("Add New");
+    const newRockBand = {
+      id: crypto.randomUUID(),
+      name: "New Rockband",
+    };
+    setRockBand((prevRockBand) => [...prevRockBand, newRockBand]);
   };
 
   return (
@@ -24,7 +29,13 @@ function RockBandList() {
       <h1>Rock Bands</h1>
       <ul>
         {rockBands.map((rockBand) => {
-          return <RockBand rockBand={rockBand.name} key={rockBand.id} />;
+          return (
+            <RockBand
+              rockBand={rockBand.name}
+              id={rockBand.id}
+              key={rockBand.id}
+            />
+          );
         })}
       </ul>
       <button onClick={addNew}>Add</button>
