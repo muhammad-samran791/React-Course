@@ -1,18 +1,38 @@
 import React, { useEffect, useState } from "react";
-const URL = "https://jsonplaceholder.typicode.com/posts";
+import Post from "./Post";
+const URL = "https://jsonplaceholder.typicode.com/postss";
 
 function FetchDataExample() {
   const [jsonItems, setJsonItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+  const [ErrorMsg, setErrorMsg] = useState("");
 
   const fetchData = async () => {
     const response = await fetch(URL);
     const data = await response.json();
     setJsonItems(data);
+
+    if (!(response.status >= 200 && response.status <= 299)) {
+      setIsError(true);
+      setErrorMsg("Something Went Wrong");
+      setIsLoading(false);
+      return;
+    }
+    setIsLoading(false);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
+
+  if (isLoading) {
+    return <h1>Loading ....</h1>;
+  }
+
+  if (isError) {
+    return <h1>{ErrorMsg}</h1>;
+  }
 
   // useEffect(() => {
   //   fetch(URL)
@@ -23,6 +43,7 @@ function FetchDataExample() {
   //       setJsonItems(data);
   //     });
   // }, []);
+
   console.log(jsonItems);
   return (
     <>
@@ -35,15 +56,9 @@ function FetchDataExample() {
           </tr>
         </thead>
         <tbody>
-          {jsonItems.map((jsonItem) => {
-            return (
-              <tr key={jsonItem.id}>
-                <td>{jsonItem.id}</td>
-                <td>{jsonItem.title}</td>
-                <td>{jsonItem.body}</td>
-              </tr>
-            );
-          })}
+          {jsonItems.map((jsonItem) => (
+            <Post key={jsonItem.id} {...jsonItem} />
+          ))}
         </tbody>
       </table>
     </>
