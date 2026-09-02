@@ -13,7 +13,7 @@ function MouseMoveEvent() {
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
-  });
+  }, []);
 
   return (
     <>
